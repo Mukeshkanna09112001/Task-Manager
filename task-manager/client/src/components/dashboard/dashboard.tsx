@@ -113,10 +113,8 @@ const DashboardPage = () => {
         const { destination, source, draggableId } = result;
         if (!destination || destination.droppableId === source.droppableId) return;
 
-        const confirm = window.confirm(
-            `Are you sure you want to move the task to "${destination.droppableId}"?`
-        );
-        if (!confirm) return;
+        const shouldDelete = window.confirm('Are you sure you want to delete this task?');
+        if (!shouldDelete) return;
 
         const task = tasks.find((t) => t._id === draggableId);
         if (!task) return;

@@ -191,8 +191,8 @@ const TaskPage = () => {
   };
 
   const handleDelete = async (taskId: string) => {
-    const confirmDelete = confirm('Are you sure you want to delete this task?');
-    if (!confirmDelete) return;
+    const shouldDelete = window.confirm('Are you sure you want to delete this task?');
+    if (!shouldDelete) return;
 
     try {
       await deleteTask(taskId);
