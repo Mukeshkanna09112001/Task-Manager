@@ -111,7 +111,7 @@ const CommentsPage = () => {
     };
 
     const handleDelete = async (id: string) => {
-        const confirmDelete = confirm('Delete this comment?');
+        const confirmDelete = window.confirm('Delete this comment?');
         if (!confirmDelete) return;
 
         try {
@@ -163,10 +163,11 @@ const CommentsPage = () => {
                                     <td>{comment.text}</td>
                                     <td>{matchedTask?.title || 'Unknown Task'}</td>
                                     <td>{new Date(comment.createdAt).toLocaleDateString()}</td>
-                                    <td>
-                                        <FaEdit className={styles.iconButton} onClick={() => handleEdit(comment)} />
-                                        <FaTrash className={styles.iconButton} onClick={() => handleDelete(comment._id)} />
-                                    </td>
+                                   <td>
+  <FaEdit className={styles.iconButton} onClick={() => handleEdit(comment)} />
+  <FaTrash className={styles.iconButton} onClick={() => handleDelete(comment._id)} />
+</td>
+
                                 </tr>
                             );
                         })}
